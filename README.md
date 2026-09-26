@@ -12,7 +12,11 @@ A desktop file manager built on Chromium 150 Views, with Chrome-style tabs, flex
 
 ![crFiles browsing screenshots in a compact icon grid with image thumbnails](Screenshot%20From%202026-09-25%2010-04-49.png)
 
-The screenshots show the application on Linux. Small interface details may differ from the latest source.
+**Content search with highlighted matches**
+
+![crFiles search tab showing a query chip, pause control, content snippets, highlighted matches, and open-folder actions](Screenshot%20From%202026-09-26%2009-54-54.png)
+
+The screenshots show the application on Linux. The search screenshot shows the current search interface; details in older screenshots may differ from the latest source.
 
 ## Browse your way
 
@@ -35,7 +39,7 @@ Switch between a detailed list and a compact icon grid using the integrated view
 - Sort by name, modification time, size, or file type, with folders before files.
 - Show or hide hidden files and choose visible list columns.
 - Resize list columns by dragging their header dividers.
-- Select items with Ctrl-click, Shift range selection, or a selection rectangle. Ctrl+A toggles selection of all displayed entries.
+- Select items with Ctrl-click, Shift range selection, or a selection rectangle. Ctrl+A toggles selection of all displayed entries. With the folder view focused, press A–Z to jump to the next item starting with that letter; repeated presses wrap around.
 - See the combined size of selected files in the pane status area.
 
 File-type icons use bundled SVG assets selected by MIME type, without scanning the system icon directory at runtime. Icon view provides image thumbnails, including SVG, and **PDF first-page previews** through PDFium. Previews preserve aspect ratio; unavailable previews fall back to file-type icons.
@@ -76,6 +80,16 @@ Nearby discovery and receiving are enabled by default and can be changed in **Se
 
 Desktop sharing targets local IPv4 networks. Remote folder browsing is not implemented. Windows receive targets currently require local drive paths; UNC paths, junctions, and symbolic links are not supported as receive targets.
 
+## Search folders
+
+Click **Search** in a pane’s floating toolbar to open a dedicated tab for that folder and its descendants. The integrated search field supports **Search by Path** (the default) and **Search by Content**. Its filter menu also includes **Hidden File**; enabling it adds hidden results without rereading ordinary files.
+
+Type an extension followed by Space, such as `.pdf ` or `.jpg `, to add a removable file-type chip. Multiple extensions are alternatives. Type a query and press Enter to start searching; only then does the query become a chip. Changing the search mode with a query already present starts a new search. Matching is case-insensitive.
+
+Path search shows matching paths on one line. Content search shows each filename and a highlighted excerpt on two lines. Content sources include UTF-8 and UTF-16 text, embedded PDF text, and JPEG, PNG, WebP, and TIFF metadata such as EXIF camera details, dates, descriptions, and GPS fields. Search does not perform OCR or image recognition.
+
+The search tab shows live match and scan counts, with a pause/resume icon beside the search root. Removing the query chip or pressing Escape cancels the task. Double-click a result to open it, or use its folder icon to open the containing folder and select the matching file. Results use a virtual list, so large result sets do not create a view for every match. Enumeration and parsing run in a separate Mojo search process with cooperative pause and cancellation. Searches are bounded and do not create a persistent content index; protected, unsupported, or oversized files may be skipped or partially searched.
+
 ## History and settings
 
 Open **History** from the title-bar menu to view a dedicated history tab. A local SQLite database records file operations, folder access, file opening, and incoming or outgoing transfers, including their source, destination, result, and interaction type where applicable.
@@ -102,6 +116,7 @@ English is the source language. Translations are available for Simplified Chines
 | Ctrl+Plus / Ctrl+Minus | Increase / decrease icon size |
 | Ctrl+= | Increase icon size |
 | Ctrl+A | Toggle select all in the file view |
+| A–Z (folder view focused) | Select the next item starting with that letter; repeat to cycle |
 | Ctrl+C / Ctrl+X / Ctrl+V | Copy / cut / paste |
 | Alt+Left / Alt+Right | Back / forward |
 | F5 | Refresh |
