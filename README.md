@@ -2,6 +2,11 @@
 
 A desktop file manager built on Chromium 150 Views, with Chrome-style tabs, flexible split panes, file previews, and nearby file sharing. crFiles brings browsing, organizing, and transferring files together in one workspace on Linux and Windows.
 
+## Download
+
+- **Windows:** [Microsoft Store](https://apps.microsoft.com/store/detail/9NCC8M0F2D2W?cid=DevShareMCLPCS)
+- **Linux and macOS:** [Download from GitHub Releases](https://github.com/libcr/crFiles/releases)
+
 ## Screenshots
 
 **Tabs, nested split panes, and folder bookmarks**
