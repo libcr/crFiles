@@ -85,6 +85,8 @@ The Trash page has a centered capsule toolbar with **Restore** and **Empty Trash
 
 ## Android Quick Share
 
+The Quick Share protocol implementation in crFiles comes from [crQuickShare](https://github.com/wuruxu/crQuickShare).
+
 Right-click selected files or folders and choose **Quick Share** to send to an Android device on the same local network. Open the phone's Quick Share receive screen if it does not appear, compare the full pairing code on both devices, and accept the transfer. Linux also uses Bluetooth discovery and wake-up advertising when available; file transport still requires LAN connectivity.
 
 - **Files and folders:** Send up to 100 files after recursively collecting selected folders. Empty folders are omitted, and Android determines its receiving location and handling of folder structure.
@@ -92,8 +94,6 @@ Right-click selected files or folders and choose **Quick Share** to send to an A
 - **Receiving:** Quick Share reception starts with crFiles. Each incoming transfer requires code comparison and acceptance; files are saved in a unique `Transfer-*` directory without overwriting existing files.
 - **Independent settings:** **Settings → Quick Share** controls its enable switch (on by default), device name, and receive directory. The default on Linux is `~/Downloads/crFiles Received`.
 - **Cancellation:** Closing the sending dialog keeps an active transfer running. Use Cancel in its session bubble to stop it.
-
-Quick Share operates independently of desktop **Share to** and does not require a Google login. Wi-Fi Direct and non-file attachments are not supported. Windows/macOS availability and device interoperability still require validation.
 
 ## Nearby sharing
 
