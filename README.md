@@ -4,7 +4,8 @@ A desktop file manager built on Chromium 156 Views, with Chrome-style tabs, flex
 
 ## Source code
 
-The crFiles source code is available on GitHub: [wuruxu/crfiles](https://github.com/wuruxu/crfiles).
+- **crFiles:** [wuruxu/crfiles](https://github.com/wuruxu/crfiles)
+- **Quick Share protocol implementation (crQuickShare):** [wuruxu/crQuickShare](https://github.com/wuruxu/crQuickShare)
 
 ## Download
 
